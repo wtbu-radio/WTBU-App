@@ -18,7 +18,17 @@ export class RadioShows {
             .then(response => {
                 const root = HTMLParser.parse(response.data)
 
-                console.log(root.firstChild.structure)
+                console.log(root.firstChild.structure.substring(0, 100))
+                const showTable = root.querySelector('table')
+                //console.log(showTable)
+                //console.log(showTable.text)
+
+                let showRows = showTable.querySelectorAll('tr')
+                //console.log(showRows)
+
+                for (let i = 0; i < showRows.length; i++){
+                    console.log(showRows[i].text)
+                }
 
                 //console.log(response.data)
                                 
