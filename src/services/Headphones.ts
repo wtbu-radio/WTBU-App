@@ -1,5 +1,5 @@
 import axios from 'axios'
-//import HTMLParser from 'fast-html-parser'
+import HTMLParser from 'fast-html-parser'
 import { Show } from '../modules/Show'
 
 
@@ -16,9 +16,9 @@ export class RadioShows {
     fetchData(): void {
         axios.get(archiveURL)
             .then(response => {
-                //const root = HTMLParser.parse(response.data)
+                const root = HTMLParser.parse(response.data)
 
-                //console.log(root.firstChild.structure)
+                console.log(root.firstChild.structure)
 
                 //console.log(response.data)
                                 
