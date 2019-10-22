@@ -1,6 +1,6 @@
 import axios from 'axios'
 import HTMLParser from 'fast-html-parser'
-import { Show } from '../modules/Show'
+import Show from '../modules/Show'
 
 
 const archiveURL = 'http://headphones.bu.edu/'

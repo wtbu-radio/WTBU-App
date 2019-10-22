@@ -1,4 +1,4 @@
-export class Show {
+export default class Show {
     name: string
     oneWeekURL: string
     twoWeekURL: string
