@@ -5,7 +5,7 @@ import Show from '../modules/Show'
 
 const archiveURL = 'http://headphones.bu.edu/'
 
-export class RadioShows {
+export default class RadioShows {
     showList: Show[]
 
     constructor() {
@@ -39,6 +39,10 @@ export class RadioShows {
                 // handle error
                 console.log(error);
             })
+    }
+
+    getShowsOnDay(day: number) {
+        return this.showList.filter( show => show.broadcasts[0].startDate.getDay() === day )
     }
 
 }

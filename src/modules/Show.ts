@@ -1,7 +1,21 @@
+class Recording {
+    url: string
+    startDate: Date
+
+    /**
+     * Initilizes Recording object representing a saved broadcast of a show.
+     * @param url Raw URL from headphones table
+     */
+    constructor(url: string){
+        //Ex. LoadArchive.php?mp3file=WTBU-2019-02-03_0000_to_0200_Aircheck.mp3&realname=Aircheck
+        this.url = `http://headphones.bu.edu/Archives/${url.substring(url.indexOf('=') +1, url.indexOf("&"))}`
+        this.startDate = new Date()
+    }
+}
+
 export default class Show {
     name: string
-    oneWeekURL: string
-    twoWeekURL: string
+    broadcasts: Recording[]
     airDay: number
     airTime: number
 
@@ -9,10 +23,9 @@ export default class Show {
     //custom show color?
     //custom show image link?
 
-    constructor(name: string, oneWeekURL: string, twoWeekURL: string, airDay: number, airTime: number) { 
+    constructor(name: string, broadcasts: Recording[], airDay: number, airTime: number) { 
         this.name = name
-        this.oneWeekURL = oneWeekURL
-        this.twoWeekURL = twoWeekURL
+        this.broadcasts = broadcasts
         this.airDay = airDay
         this.airTime = airTime
     }
