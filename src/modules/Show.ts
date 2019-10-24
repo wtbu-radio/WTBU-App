@@ -23,11 +23,11 @@ export default class Show {
     //custom show color?
     //custom show image link?
 
-    constructor(name: string, broadcasts: Recording[], airDay: number, airTime: number) { 
+    constructor(name: string, broadcasts: Recording[]) { 
         this.name = name
         this.broadcasts = broadcasts
-        this.airDay = airDay
-        this.airTime = airTime
+        this.airDay = broadcasts[0].startDate.getDay()
+        this.airTime = broadcasts[0].startDate.getHours()
     }
 
 }
