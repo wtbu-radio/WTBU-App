@@ -4,10 +4,11 @@
 import React from 'react'
 import {AppRegistry} from 'react-native';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import {name as appName} from './app.json';
 import App from './src/components/AppNavigator'; //Launch point
 
-const theme = {
+const lightTheme = {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
@@ -30,6 +31,8 @@ const darkTheme = {
 }
 
 export default function Main() {
+    const theme = lightTheme
+    changeNavigationBarColor(theme.colors.primary)
     return (
         <PaperProvider theme={theme}>
             <App />

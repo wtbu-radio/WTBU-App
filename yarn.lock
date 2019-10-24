@@ -5276,6 +5276,11 @@ react-native-gesture-handler@^1.4.1:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
+react-native-navigation-bar-color@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-navigation-bar-color/-/react-native-navigation-bar-color-1.0.0.tgz#04ff752a58049af93ceea9ccf266b8d3fbc6514a"
+  integrity sha512-djBE0zSp+JT65VeUm4UpIpr9DA9SpE9YTLwDAcqkWfB9JI8l3djSx+SmrIYfc7dUs216Y6qo2dr0qR3+M5qbOQ==
+
 react-native-paper@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-native-paper/-/react-native-paper-3.0.0.tgz#b7d667dcb38f5e69552db140c398f50ea46ee98e"
