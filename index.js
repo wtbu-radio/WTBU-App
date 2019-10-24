@@ -32,7 +32,7 @@ const darkTheme = {
 
 export default function Main() {
     const theme = lightTheme
-    changeNavigationBarColor(theme.colors.primary)
+    changeNavigationBarColor(theme.colors.primary, false)
     return (
         <PaperProvider theme={theme}>
             <App />

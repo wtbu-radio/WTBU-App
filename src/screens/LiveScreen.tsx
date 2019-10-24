@@ -7,8 +7,11 @@ export default class LiveScreen extends React.Component {
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <Text>Live Screen</Text>
           <Button
-          title="Go to Player"
-          onPress={() => this.props.navigation.navigate('MediaPlayer')}
+          title="Listen to the Live Broadcast"
+          onPress={() => 
+
+            this.props.navigation.navigate('MediaPlayer', { src: 'http://wtbu.bu.edu:1800/' })
+          }
         />
         </View>
       )
