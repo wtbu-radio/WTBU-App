@@ -37,10 +37,22 @@ const BottomBarNavigator = createMaterialBottomTabNavigator(
   }
 )
 
-const AppStack = createStackNavigator({
-  Tabs: BottomBarNavigator,
-  MediaPlayer: MediaPlayerScreen,
-  /* any other route you want to render above the tab bar */
-});
+const AppStack = createStackNavigator(
+  {
+    Tabs: {
+      screen: BottomBarNavigator,
+    },
+    MediaPlayer: {
+      screen : MediaPlayerScreen,
+    }
+    /* any other route you want to render above the tab bar */
+  },
+  {
+    defaultNavigationOptions: {
+      headerTitle: 'WTBU Everywhere! :)',
+      headerRight: <Icon name="brightness-4" size={25} style={{ paddingRight: 12}}/>
+    }
+  }
+);
   
 export default createAppContainer(AppStack);
