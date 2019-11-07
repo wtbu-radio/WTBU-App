@@ -1,19 +1,54 @@
 import React from 'react'
-import { View, Text, Button } from 'react-native'
+import { View, Text, Button, ActivityIndicator, FlatList } from 'react-native'
 
 import RadioShows from '../services/Headphones'
+import ShowDetail from '../components/ShowDetail'
 
 export default class ArchiveScreen extends React.Component {
-    render() {
-      //let shows = new RadioShows()
+
+  state = { isLoading: true, shows: {} as RadioShows }
+
+  render() {
+
+    if(this.state.isLoading){
       return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text>Archive Screen</Text>
-          <Button
-          title="Go to Player"
-          onPress={() => this.props.navigation.navigate('MediaPlayer')}
-        />
+        <View style={{flex:1, alignItems: 'center', justifyContent: 'center'}}>
+          <ActivityIndicator size="large" color="#d32f2f" />
         </View>
       )
-    }
+    } 
+
+    return (
+      <View style={{flex: 1, padding:16}}>
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={this.state.shows.showList}
+          renderItem={ radioShow => <ShowDetail show={radioShow.item} navigation={this.props.navigation} />}
+          keyExtractor={({name}) => name}
+        />
+      </View>
+    )
+  }
+
+  componentDidMount(){
+    let radioShows = new RadioShows()
+    let gotData = false
+
+    setInterval(() => {
+      if(!gotData){
+        radioShows.fetchData().then( showsOnHeadphones => {
+          if(showsOnHeadphones){
+            radioShows.updateShows(showsOnHeadphones)
+            this.setState( () => ({ shows: radioShows }))
+            this.setState( () => ({ isLoading: false }))
+            console.log('Fetched shows from headphones!')
+            gotData = true
+          } else {
+            console.log('No shows from headphones! Will retry...')
+          }
+        })
+      }
+    }, 1000)
+
+  }
 }
