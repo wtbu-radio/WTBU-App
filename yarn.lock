@@ -5330,9 +5330,10 @@ react-native-safe-area-view@^0.14.1:
   dependencies:
     debounce "^1.2.0"
 
-react-native-track-player@react-native-kit/react-native-track-player#dev:
-  version "1.2.0"
-  resolved "https://codeload.github.com/react-native-kit/react-native-track-player/tar.gz/9b60f3f79599048a29a2451bdd56f2ce93475a98"
+react-native-track-player@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/react-native-track-player/-/react-native-track-player-1.1.8.tgz#4827d46a14320c405d19f34593c3f999c2424b0f"
+  integrity sha512-pAGMgEHtnrnHQYI53qxeZ/dNbw5CNiCTMjj6L09CQrWvZ6cJwjOQeyz4/6aOs7HfUDJc3HLntzKwTHYT7ges0g==
 
 react-native-vector-icons@^6.6.0:
   version "6.6.0"
