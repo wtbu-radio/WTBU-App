@@ -31,9 +31,9 @@ export class Recording {
         let hours = this.startDate.getUTCHours()
         if (hours === 0){
             return '12:00am'
-        } else if (hours < 11) {
+        } else if (hours <= 11) {
             return `${hours}:00am`
-        } else if (hours === 11) {
+        } else if (hours === 12) {
             return '12:00pm'
         } else {
             return `${hours % 12}:00pm`

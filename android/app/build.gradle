@@ -128,11 +128,11 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.wtbu_app"
+        applicationId 'com.blabel.wtbu_android'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 5
+        versionName '4.0'
     }
     splits {
         abi {
