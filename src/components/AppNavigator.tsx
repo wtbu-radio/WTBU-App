@@ -23,12 +23,12 @@ const BottomBarNavigator = createMaterialBottomTabNavigator(
             tabBarIcon: ({tintColor}) => <Icon name="radio" color={tintColor} size={25}/>
         }
     },
-    Station: {
+    /*Station: {
         screen: StationScreen,
         navigationOptions: {
             tabBarIcon: ({tintColor}) => <Icon name="explore" color={tintColor} size={25}/>
         }
-    }
+    }*/
   },
   {
     initialRouteName: 'Live',
@@ -49,10 +49,21 @@ const AppStack = createStackNavigator(
   },
   {
     defaultNavigationOptions: {
-      headerTitle: 'WTBU Everywhere! :)',
-      headerRight: <Icon name="brightness-4" size={25} style={{ paddingRight: 12}}/>
+      //headerTitle: 'WTBU Everywhere',
+      headerTransparent: true
+      //headerRight: <Icon name="brightness-4" size={25} style={{ paddingRight: 12}}/>
     }
   }
 );
   
-export default createAppContainer(AppStack);
+export default class AppNavigation extends React.Component {
+
+  render() {
+    let APPStack = createAppContainer(AppStack)
+    //console.log(this.props)
+    //this.props.changeTheme()
+    return (<APPStack theme="light" />)
+  }
+}
+
+//export default () => ;

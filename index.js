@@ -6,7 +6,7 @@ import {AppRegistry} from 'react-native';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import {name as appName} from './app.json';
-import App from './src/components/AppNavigator'; //Launch point
+import AppNavigator from './src/components/AppNavigator'; //Launch point
 
 import TrackPlayer from 'react-native-track-player';
 import MediaPlayer from './src/services/MediaPlayer'
@@ -37,14 +37,37 @@ const darkTheme = {
     },
 }
 
+class App extends React.Component {
+
+    constructor(props){
+        super(props)
+        this.changeTheme = this.changeTheme.bind(this)
+    }
+
+    state = {
+        theme: lightTheme
+    }
+
+    changeTheme() {
+        console.log(this.state)
+        this.state.theme === lightTheme ? this.state.theme = darkTheme : this.state.theme = lightTheme
+        //changeNavigationBarColor(this.state.theme.colors.primary, false)
+    }
+
+    render() {
+        changeNavigationBarColor(this.state.theme.colors.primary, false)
+
+        return (
+            <PaperProvider theme={this.state.theme}>
+                <AppNavigator changeTheme={this.changeTheme}/>
+            </PaperProvider>
+        )
+    }
+}
+
 export default function Main() {
-    const theme = lightTheme
-    changeNavigationBarColor(theme.colors.primary, false)
-    return (
-        <PaperProvider theme={theme}>
-            <App />
-        </PaperProvider>
-    )
+    let app = new App()
+    return app.render()
 }
 
 AppRegistry.registerComponent(appName, () => Main);
