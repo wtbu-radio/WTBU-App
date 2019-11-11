@@ -1,4 +1,4 @@
-package com.wtbu_app;
+package com.blabel.wtbu_android;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

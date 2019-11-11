@@ -1,4 +1,4 @@
-package com.wtbu_app;
+package com.blabel.wtbu_android;
 
 import android.app.Application;
 import android.content.Context;
