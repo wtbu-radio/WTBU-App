@@ -19,7 +19,7 @@ export default class ArchiveScreen extends React.Component {
     } 
 
     return (
-      <View style={{flex: 1, padding:16}}>
+      <View style={{flex: 1, paddingLeft:16, paddingRight:16, paddingTop:4, paddingBottom:4}}>
         <FlatList
           showsVerticalScrollIndicator={false}
           data={this.state.shows.showList}

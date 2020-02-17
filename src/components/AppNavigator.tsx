@@ -33,7 +33,7 @@ const BottomBarNavigator = createMaterialBottomTabNavigator(
   {
     initialRouteName: 'Live',
     shifting: true,
-    barStyle: { paddingBottom: 0 },
+    barStyle: { paddingBottom: 0, borderTopWidth: 0, borderTopColor:'red' },
   }
 )
 
