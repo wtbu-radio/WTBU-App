@@ -258,7 +258,7 @@ export default class MediaPlayerScreen extends React.Component {
     return (
       <View style={{ flex: 1, backgroundColor: '#f6f6f6', paddingTop: 10 }}>
         <View style={{width: wp('100%'), height: hp('50%'), alignItems: 'center', justifyContent: 'center' }}>
-          <Image source={ require('../assets/AlbumDefault.png') } style={ { resizeMode: 'contain', width: '80%', height: '80%' } }/>
+          <Image source={ require('../assets/AlbumDefault.png') } style={ { resizeMode: 'contain', width: '80%', height: '80%' } } resizeMode="contain"/>
         </View>
         <View style={{ flex: 1 }}>
           <Text style={{ fontSize: 36, textAlign: 'center' }}>{this.state.title}</Text>

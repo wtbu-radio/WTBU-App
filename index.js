@@ -2,6 +2,7 @@
  * @format
  */
 import React from 'react'
+import 'react-native-gesture-handler'
 import {AppRegistry} from 'react-native';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
