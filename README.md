@@ -8,7 +8,9 @@ This is the mobile app for WTBU, the Beat of Boston University.
 
 * Android: [Google Play Store](https://play.google.com/store/apps/details?id=com.blabel.wtbu_android&hl=en_US)
 
-* iOS: COming soon!
+* iOS: [Apple App Store](itms-apps://itunes.apple.com/app/apple-store/id1487871820)
+
+Or, clone this repo and run a debug version of the app on your device!
 
 ## Features:
 
@@ -21,4 +23,5 @@ This is the mobile app for WTBU, the Beat of Boston University.
 
 * Seekbar to allow faster skipping through tracks
 * Spinitron integration to show currently playing song
+* Acrhives sort alphabetically or by air date
 * Dark/Night mode
