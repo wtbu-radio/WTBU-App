@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, Image, Button, TouchableOpacity, SafeAreaView } from 'react-native'
+import Slider from '@react-native-community/slider';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import {
   widthPercentageToDP as wp,
@@ -9,6 +10,19 @@ import {
 } from 'react-native-responsive-screen';
 
 import TrackPlayer from 'react-native-track-player';
+import { ProgressComponent } from 'react-native-track-player';
+
+function getPrettyTime(seconds : number) : string {
+  let hours = Math.floor(seconds / 3600)
+  let minutes = Math.floor((seconds - hours * 3600) / 60)
+  let goodSeconds = Math.floor((seconds - hours * 3600 - minutes * 60))
+
+  function str_pad_left(string : number,pad : string,length : number) {
+    return (new Array(length+1).join(pad)+string).slice(-length);
+  }
+
+  return `${hours}:${str_pad_left(minutes,'0',2)}:${str_pad_left(goodSeconds,'0',2)}`
+}
 
 class Rewind extends React.Component {
 
@@ -123,6 +137,60 @@ class PlayPause extends React.Component {
   }
 }
 
+class SeekBar extends ProgressComponent {
+
+  render() {
+    let fancyDuration
+    if (this.state.duration){
+      let adjDuration = this.state.duration -1
+      fancyDuration = getPrettyTime(adjDuration)
+    } else {
+      fancyDuration = 'LIVE'
+    }
+
+    let position = this.getProgress()
+    return (
+      <View style={{
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingTop: 16,
+        paddingLeft: 16,
+        paddingRight: 16,
+        //backgroundColor: 'red'
+      }}>
+        <Slider
+          style={{width:'100%', height: 40}}
+          minimumValue={0}
+          maximumValue={1}      
+          onValueChange={value =>
+            TrackPlayer.seekTo(Math.floor(this.state.duration * value))
+          }    
+          
+          value={position}
+          minimumTrackTintColor="#d32f2f"
+          maximumTrackTintColor="#d32f2f"
+          thumbTintColor="#d32f2f"
+        />
+        <View style={{
+          flex: 1,
+          width: '100%',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          paddingTop: 20,
+          //backgroundColor: 'red'
+        }}>
+          <Text>{getPrettyTime(Math.max(0, Math.floor(this.state.position -1)))}</Text>
+          
+          <Text>{fancyDuration}</Text>
+        </View>
+      </View>
+    )    
+    
+  }
+}
+
 export default class MediaPlayerScreen extends React.Component {
 
   componentDidMount() {
@@ -194,6 +262,7 @@ export default class MediaPlayerScreen extends React.Component {
         </View>
         <View style={{ flex: 1 }}>
           <Text style={{ fontSize: 36, textAlign: 'center' }}>{this.state.title}</Text>
+          <SeekBar />
           <View style={{
             flex: 1,
             flexDirection: 'row',
