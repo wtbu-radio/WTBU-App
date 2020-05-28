@@ -1,6 +1,6 @@
 # WTBU-APP
 
-<img src="/assets/icons/iOS-launcher.png" width="500" alt="App Icon"/>
+<img src="icon-pretty.png" width="500" alt="App Icon"/>
 
 This is the mobile app for WTBU, the Beat of Boston University.
 
